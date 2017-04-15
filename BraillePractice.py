@@ -1,5 +1,6 @@
 import wx
 #define the ascii values for each key used as a Braille dot
+#F,D,S will be dots 1,2, and 3 and J,K, and l will be dots 4,5 and 6.
 dot1=70
 dot2=68
 dot3=83
@@ -9,36 +10,36 @@ dot6=76
 backspace=59
 space=32
 #use a Python dictionary to store all the Braille letters
-letters={"a":dot1}
-letters.update({"b":(dot1,dot2)})
-letters.update({"c":(dot1,dot4)})
-letters.update({"d":(dot1,dot4,dot5)})
-letters.update({"e":(dot1,dot5)})
-letters.update({"f":(dot1,dot2,dot4)})
-letters.update({"g":(dot1,dot2,dot4,dot5)})
-letters.update({"h":(dot1,dot2,dot5)})
-letters.update({"i":(dot2,dot4)})
-letters.update({"j":(dot2,dot4,dot5)})
-letters.update({"k":(dot1,dot3)})
-letters.update({"l":(dot1,dot2,dot3)})
-letters.update({"m":(dot1,dot3,dot4)})
-letters.update({"n":(dot1,dot3,dot4,dot5)})
-letters.update({"o":(dot1,dot3,dot5)})
-letters.update({"p":(dot1,dot2,dot3,dot4)})
-letters.update({"q":(dot1,dot2,dot3,dot4,dot5)})
-letters.update({"r":(dot1,dot2,dot3,dot5)})
-letters.update({"s":(dot2,dot3,dot4)})
-letters.update({"t":(dot2,dot3,dot4,dot5)})
-letters.update({"u":(dot1,dot3,dot6)})
-letters.update({"v":(dot1,dot2,dot3,dot6)})
-letters.update({"w":(dot2,dot4,dot5,dot6)})
-letters.update({"x":(dot1,dot3,dot4,dot6)})
-letters.update({"y":(dot1,dot3,dot4,dot5,dot6)})
-letters.update({"z":(dot1,dot3,dot5,dot6)})
+letters={"a":(dot1,),
+"b":(dot1,dot2),
+"c":(dot1,dot4),
+"d":(dot1,dot4,dot5),
+"e":(dot1,dot5),
+"f":(dot1,dot2,dot4),
+"g":(dot1,dot2,dot4,dot5),
+"h":(dot1,dot2,dot5),
+"i":(dot2,dot4),
+"j":(dot2,dot4,dot5),
+"k":(dot1,dot3),
+"l":(dot1,dot2,dot3),
+"m":(dot1,dot3,dot4),
+"n":(dot1,dot3,dot4,dot5),
+"o":(dot1,dot3,dot5),
+"p":(dot1,dot2,dot3,dot4),
+"q":(dot1,dot2,dot3,dot4,dot5),
+"r":(dot1,dot2,dot3,dot5),
+"s":(dot2,dot3,dot4),
+"t":(dot2,dot3,dot4,dot5),
+"u":(dot1,dot3,dot6),
+"v":(dot1,dot2,dot3,dot6),
+"w":(dot2,dot4,dot5,dot6),
+"x":(dot1,dot3,dot4,dot6),
+"y":(dot1,dot3,dot4,dot5,dot6),
+"z":(dot1,dot3,dot5,dot6)}
 
 class Gui(wx.Frame):
     def __init__(self):
-        wx.Frame.__init__(self, None, title="test", size=(800, 400))
+        wx.Frame.__init__(self, None, title="Braille Practice", size=(800, 400))
         self.txt = wx.TextCtrl( self, -1, "", style=wx.TE_MULTILINE )
         self.txt.Bind( wx.EVT_KEY_DOWN, self.onKeyDown )
         self.txt.Bind( wx.EVT_KEY_UP, self.onKeyUp )
@@ -55,7 +56,6 @@ class Gui(wx.Frame):
         if evt.GetKeyCode() != 307:
             self.keylist.append( evt.GetKeyCode() )
     def onKeyUp( self, evt ):
-        print( "Key up", evt.GetKeyCode() )
         if not self.handled:
             self.handleChord()
         self.keylist.remove( evt.GetKeyCode() )
@@ -67,10 +67,25 @@ class Gui(wx.Frame):
 
     def handleChord( self ):
         self.timer.Stop()
-#Now we need to convert our list of keys to a tuple so we can check it against the dictionary of letters.
-        self.final_key_list=tuple(self.keylist)
-        print "You pressed ",self.final_key_list[0:len(self.final_key_list)],"."
-        print test
+        print self.keylist
+#put the keys in order
+        self.temp_key_list=[]
+        if dot1 in self.keylist:
+            self.temp_key_list.append(dot1)
+        if dot2 in self.keylist:
+            self.temp_key_list.append(dot2)
+        if dot3 in self.keylist:
+            self.temp_key_list.append(dot3)
+        if dot4 in self.keylist:
+            self.temp_key_list.append(dot4)
+        if dot5 in self.keylist:
+            self.temp_key_list.append(dot5)
+        if dot6 in self.keylist:
+            self.temp_key_list.append(dot6)
+        self.final_key_list=tuple(self.temp_key_list)
+        for key in letters:
+            if letters[key]==self.final_key_list:
+                print "You pressed the letter ",key,"."
         self.handled = True
 
 
