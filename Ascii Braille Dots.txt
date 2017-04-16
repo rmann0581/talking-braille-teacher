@@ -1,0 +1,8 @@
+dot1=70
+dot2=68
+dot3=83
+dot4=74
+dot5=75
+dot6=76
+backspace=59
+space=32

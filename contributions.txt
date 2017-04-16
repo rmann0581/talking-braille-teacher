@@ -1,0 +1,3 @@
+Thanks to the following contributers:
+Tim Roberts from the Wx Python Users email list contributed code to detect multiple key presses.  This was a must for emulating the Braille keyboard.
+In order to do text-to-speach on Windows, a program called Win Say is used.  the URL for the Github repository is https://github.com/technogeek48/winsay.
