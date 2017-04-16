@@ -1,4 +1,6 @@
 import wx
+#use subprocess to execute the say command
+from subprocess import call
 #define the ascii values for each key used as a Braille dot
 #F,D,S will be dots 1,2, and 3 and J,K, and l will be dots 4,5 and 6.
 dot1=70
@@ -86,6 +88,7 @@ class Gui(wx.Frame):
         for key in letters:
             if letters[key]==self.final_key_list:
                 print "You pressed the letter ",key,"."
+                call(["say", "-m "+key])
         self.handled = True
 
 
