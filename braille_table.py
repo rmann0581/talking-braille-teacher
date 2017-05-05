@@ -8,8 +8,8 @@ dot5=75
 dot6=76
 backspace=59
 space=32
-#use a Python dictionary to store all the Braille letters
-letters={"a":(dot1,),
+#use a Python dictionary to store the Braille letters and symbols.
+symbols={"a":(dot1,),
 "b":(dot1,dot2),
 "c":(dot1,dot4),
 "d":(dot1,dot4,dot5),
@@ -34,4 +34,14 @@ letters={"a":(dot1,),
 "w":(dot2,dot4,dot5,dot6),
 "x":(dot1,dot3,dot4,dot6),
 "y":(dot1,dot3,dot4,dot5,dot6),
-"z":(dot1,dot3,dot5,dot6)}
+"z":(dot1,dot3,dot5,dot6),
+"for":(dot1,dot2,dot3,dot4,dot5,dot6),
+"th":(dot1,dot4,dot5,dot6),
+"er":(dot1,dot2,dot4,dot5,dot6),
+"the":(dot2,dot3,dot4,dot6),
+"ow":(dot2,dot4,dot6),
+"and":(dot1,dot2,dot3,dot4,dot6),
+"number sign":(dot3,dot4,dot5,dot6),
+".":(dot2,dot4,dot6),
+"?":(dot2,dot3,dot6),
+"!":(dot2,dot3,dot5)}

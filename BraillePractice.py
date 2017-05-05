@@ -51,9 +51,9 @@ class Gui(wx.Frame):
             print "got dot 6"
             call(["say ","-m dot 6"])
         self.final_key_list=tuple(self.temp_key_list)
-        for key in letters:
-            if letters[key]==self.final_key_list:
-                print "You pressed the letter ",key,"."
+        for key in symbols:
+            if symbols[key]==self.final_key_list:
+                print "You pressed  ",key,"."
                 call(["say", "-m "+key])
         self.handled = True
 
