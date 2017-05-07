@@ -43,7 +43,9 @@ symbols={"a":(dot1,),
 "and":(dot1,dot2,dot3,dot4,dot6),
 "sh":(dot1,dot4,dot6),
 "st":(dot3,dot4),
-"ch":(dot4,dot6),
+"ch":(dot1,dot6),
+"wh":(dot1,dot5,dot6),
+"ou":(dot1,dot2,dot5,dot6),
 "number sign":(dot3,dot4,dot5,dot6),
 "dot":(dot2,dot4,dot6),
 "question mark":(dot2,dot3,dot6),
@@ -56,4 +58,42 @@ symbols={"a":(dot1,),
 "open quote":(dot2,dot3,dot6),
 "closed quote":(dot3,dot5,dot6),
 "parenthesis":(dot2,dot3,dot5,dot6)}
- 
+ #now create dictionary for dot 5 contractions
+dot5={"c":"character",
+"d":"day",
+"e":"ever",
+"f":"father",
+"h":"here",
+"k":"know",
+"l":"lord",
+"m":"mother",
+"n":"name",
+"o":"one",
+"p":"part",
+"q":"question",
+"r":"right",
+"s":"some",
+"t":"time",
+"u":"under",
+"w":"work",
+"y":"younge",
+"ch":"character",
+"the":"there",
+"th":"through",
+"wh":"where"}
+#now create a dictionary for dot 4 5 contractions
+dot45={"the":"these",
+"wh":"whose",
+"th":"those",
+"u":"upon",
+"w":"word"}
+#And now for the dots 4 5 6 contractions
+
+dot456={"c":"cannot",
+"h":"had",
+"m":"many",
+"s":"spirit",
+"the":"their",
+"w":"world"}
+
+
